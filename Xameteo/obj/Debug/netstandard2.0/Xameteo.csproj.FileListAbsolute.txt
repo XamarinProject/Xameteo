@@ -1,0 +1,16 @@
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.csprojAssemblyReference.cache
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\App.xaml.g.cs
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.AssemblyInfoInputs.cache
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.AssemblyInfo.cs
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.dll
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\ref\Xameteo.dll
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.pdb
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\bin\Debug\netstandard2.0\Xameteo.deps.json
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\bin\Debug\netstandard2.0\Xameteo.dll
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\bin\Debug\netstandard2.0\ref\Xameteo.dll
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\bin\Debug\netstandard2.0\Xameteo.pdb
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Controls\FlyoutHeader.xaml.g.cs
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Pages\CitiesPage.xaml.g.cs
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Pages\CityPage.xaml.g.cs
+E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\obj\Debug\netstandard2.0\XamlC.stamp
