@@ -17,7 +17,12 @@ namespace Xameteo
         {
             InitializeComponent();
             BindingContext = VM = new CitiesViewModel();
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            VM.Init();
         }
     }
 }
