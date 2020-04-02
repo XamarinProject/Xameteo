@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:local="clr-namespace:Xameteo"
+             mc:Ignorable="d"
+             x:Class="Xameteo.CitySearchModal">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:XamlBoolConverter x:Key="invertBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.7*"/>
+                <ColumnDefinition Width="6.6*"/>
+                <ColumnDefinition Width="1.7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0" Grid.Column="0" HasShadow="True" BackgroundColor="CornflowerBlue" CornerRadius="30" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                </Frame.GestureRecognizers>
+                <ffimageloading:SvgCachedImage Source="back.svg" HeightRequest="100"/>
+            </Frame>
+
+            <Entry Grid.Row="0" Grid.Column="1" Text="{Binding SearchValue}" Placeholder="Rechercher une ville"/>
+
+            <Frame Grid.Row="0" Grid.Column="2" HasShadow="True" BackgroundColor="Orange" CornerRadius="30" Padding="10">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SearchCommand}"/>
+                </Frame.GestureRecognizers>
+                <ffimageloading:SvgCachedImage Source="search.svg" HeightRequest="100"/>
+            </Frame>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                <ffimageloading:SvgCachedImage Source="city2.svg" HeightRequest="200" IsVisible="{Binding HasResults, Converter={StaticResource invertBool}}" Opacity="0.2"/>
+                <ListView ItemsSource="{Binding SearchResult}" RowHeight="50" SelectedItem="{Binding SelectedResult}" ItemSelected="ResultSelected" IsVisible="{Binding HasResults}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding FullName}" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </StackLayout>
+</ContentPage>
