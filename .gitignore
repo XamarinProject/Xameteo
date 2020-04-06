@@ -7,7 +7,7 @@
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
+Debug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -18,23 +18,23 @@ bld/
 [Bb]in/
 [Oo]bj/
 
-*/[Dd]ebug/*
+debug/
 */[Dd]ebugPublic/*
 */[Rr]elease/*
 */[Rr]eleases/*
 */x64/*
 */x86/*
-*/build/*
+build/
 */bld/*
-*/[Bb]in/*
-*/[Oo]bj/*
+bin/
+obj/
+*.props
+*.cache
 
 # Roslyn cache directories
-*.ide/
+*.ide
 
-# MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
+
 
 #NUNIT
 *.VisualState.xml
