@@ -40,7 +40,7 @@ Nous utiliserons le Shell pour gérer la navigation entre l’écran d’accueil
 
 Api(s) :
 -	OpenWeatherMap ( https://openweathermap.org/current )
--	
+-	GeoDB ( http://geodb-free-service.wirefreethought.com/ )
 
 ----------------------------------------------------------------------------------------------------------------------------
 
