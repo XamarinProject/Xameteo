@@ -7,16 +7,18 @@
 Technologies utilisées :
 -	Xamarin forms
 -	Shell navigation
-- 	
+- SQLite	
 
 Environnement de développement :
 -	Windows 10
 -	Visual Studio 2019
 -	Git flow
--	
+-	Gitkraken
 
 Plugins utilisés :
--	
+-	FFImageLoading.Svg.Forms
+- Microsoft.NET.Http
+- Newtonsoft.Json
 
 ----------------------------------------------------------------------------------------------------------------------------
 
