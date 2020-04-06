@@ -16,7 +16,7 @@ x86/
 build/
 bld/
 [Bb]in/
-[Oo]bj/
+
 
 debug/
 */[Dd]ebugPublic/*
@@ -28,6 +28,11 @@ build/
 */bld/*
 bin/
 obj/
+*/obj/*
+*/obj/
+obj/*
+Debug/*
+*/Debug/*
 *.props
 *.cache
 
