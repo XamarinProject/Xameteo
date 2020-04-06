@@ -2498,24 +2498,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Koraebi\\.nuget\\packages\\": {},
+    "C:\\Users\\Alexa\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.Android\\Xameteo.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.Android\\Xameteo.Android.csproj",
       "projectName": "Xameteo.Android",
-      "projectPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.Android\\Xameteo.Android.csproj",
-      "packagesPath": "C:\\Users\\Koraebi\\.nuget\\packages\\",
-      "outputPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.Android\\obj\\",
+      "projectPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.Android\\Xameteo.Android.csproj",
+      "packagesPath": "C:\\Users\\Alexa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Koraebi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2529,8 +2529,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj": {
-              "projectPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj"
+            "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj": {
+              "projectPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj"
             }
           }
         }

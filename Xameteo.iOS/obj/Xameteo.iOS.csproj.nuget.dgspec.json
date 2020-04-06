@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj": {}
+    "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj": {}
   },
   "projects": {
-    "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj": {
+    "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
         "projectName": "Xameteo.iOS",
-        "projectPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
-        "packagesPath": "C:\\Users\\Koraebi\\.nuget\\packages\\",
-        "outputPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\obj\\",
+        "projectPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
+        "packagesPath": "C:\\Users\\Alexa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Koraebi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj": {
-                "projectPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj"
+              "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj": {
+                "projectPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj"
               }
             }
           }
@@ -77,20 +77,20 @@
         }
       }
     },
-    "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj": {
+    "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj",
+        "projectUniqueName": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj",
         "projectName": "Xameteo",
-        "projectPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj",
-        "packagesPath": "C:\\Users\\Koraebi\\.nuget\\packages\\",
-        "outputPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\obj\\",
+        "projectPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj",
+        "packagesPath": "C:\\Users\\Alexa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Koraebi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -152,7 +152,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
