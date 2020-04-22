@@ -203,3 +203,8 @@ FakesAssemblies/
 /packages
 
 *.userprefs
+.vs/Xameteo/DesignTimeBuild/.dtbcache
+
+.vs/Xameteo/v16/Server/sqlite3/storage.ide-shm
+
+.vs/Xameteo/v16/Server/sqlite3/storage.ide-wal
