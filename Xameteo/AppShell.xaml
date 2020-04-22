@@ -54,7 +54,7 @@
             </ShellContent>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Settings"
+    <FlyoutItem Title="Weather"
                 Icon="weather.png">
         <Tab>
             <ShellContent>
