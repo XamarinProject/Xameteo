@@ -1954,24 +1954,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexa\\.nuget\\packages\\": {},
+    "C:\\Users\\Koraebi\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
+      "projectUniqueName": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
       "projectName": "Xameteo.iOS",
-      "projectPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
-      "packagesPath": "C:\\Users\\Alexa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo.iOS\\obj\\",
+      "projectPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\Xameteo.iOS.csproj",
+      "packagesPath": "C:\\Users\\Koraebi\\.nuget\\packages\\",
+      "outputPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Koraebi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1985,8 +1985,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj": {
-              "projectPath": "C:\\Users\\Alexa\\Documents\\Xamarin\\Project\\Xameteo\\Xameteo\\Xameteo.csproj"
+            "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj": {
+              "projectPath": "E:\\LP DAM\\Cours\\Outils multiplateforme\\Xameteo\\Xameteo\\Xameteo\\Xameteo.csproj"
             }
           }
         }
