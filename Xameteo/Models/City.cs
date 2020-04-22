@@ -35,7 +35,7 @@ namespace Xameteo
         [JsonProperty("longitude")]
         public double Longitude { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty("temperature")]
         public double Temperature { get; set; }
 
         [JsonIgnore]

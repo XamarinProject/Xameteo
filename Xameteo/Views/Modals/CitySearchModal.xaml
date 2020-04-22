@@ -13,46 +13,50 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout Padding="10">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.7*"/>
-                <ColumnDefinition Width="6.6*"/>
-                <ColumnDefinition Width="1.7*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="9*"/>
-            </Grid.RowDefinitions>
+    <Grid Padding="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
 
-            <Frame Grid.Row="0" Grid.Column="0" HasShadow="True" BackgroundColor="CornflowerBlue" CornerRadius="30" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
-                </Frame.GestureRecognizers>
+        <StackLayout>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+            </StackLayout.GestureRecognizers>
+            <Frame HasShadow="True" BackgroundColor="CornflowerBlue" WidthRequest="30" HeightRequest="30" CornerRadius="100" Padding="10">
                 <ffimageloading:SvgCachedImage Source="back.svg" HeightRequest="100"/>
             </Frame>
+        </StackLayout>
 
-            <Entry Grid.Row="0" Grid.Column="1" Text="{Binding SearchValue}" Placeholder="Rechercher une ville"/>
+        <local:RoundedEntry Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" Text="{Binding SearchValue}" Placeholder="Rechercher une ville" />
 
-            <Frame Grid.Row="0" Grid.Column="2" HasShadow="True" BackgroundColor="Orange" CornerRadius="30" Padding="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SearchCommand}"/>
-                </Frame.GestureRecognizers>
+        <StackLayout Grid.Column="2">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SearchCommand}"/>
+            </StackLayout.GestureRecognizers>
+            <Frame HasShadow="True" BackgroundColor="CornflowerBlue" WidthRequest="30" HeightRequest="30" CornerRadius="100" Padding="10">
                 <ffimageloading:SvgCachedImage Source="search.svg" HeightRequest="100"/>
             </Frame>
+        </StackLayout>
 
-            <Grid Grid.Row="1" Grid.ColumnSpan="3">
-                <ffimageloading:SvgCachedImage Source="city2.svg" HeightRequest="200" IsVisible="{Binding HasResults, Converter={StaticResource invertBool}}" Opacity="0.2"/>
-                <ListView ItemsSource="{Binding SearchResult}" RowHeight="50" SelectedItem="{Binding SelectedResult}" ItemSelected="ResultSelected" IsVisible="{Binding HasResults}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Label Text="{Binding FullName}" FontSize="Medium" VerticalOptions="CenterAndExpand" />
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <ffimageloading:SvgCachedImage HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Source="city2.svg" HeightRequest="200" IsVisible="{Binding HasResults, Converter={StaticResource invertBool}}" Opacity="0.2"/>
+            <ListView ItemsSource="{Binding SearchResult}" RowHeight="50" SelectedItem="{Binding SelectedResult}" ItemSelected="ResultSelected" IsVisible="{Binding HasResults}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding FullName}" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
-    </StackLayout>
+
+        <ActivityIndicator Grid.RowSpan="2" Grid.ColumnSpan="3" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}"/>
+    </Grid>
 </ContentPage>

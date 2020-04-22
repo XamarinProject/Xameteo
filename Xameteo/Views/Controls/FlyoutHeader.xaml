@@ -7,7 +7,10 @@
              mc:Ignorable="d"
              x:Class="Xameteo.FlyoutHeader">
 
-    <StackLayout Padding="10" HeightRequest="200">
-        <Label Text="Custom Renderer à mettre ici" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" />
-    </StackLayout>
+    <Grid Padding="10" HeightRequest="200">
+        <StackLayout>
+            <Label Text="XAMETEO" HorizontalOptions="CenterAndExpand" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="White" />
+        </StackLayout>
+        <Label Text="Projet Cross-Platform, Alexandre et Sabri" HorizontalOptions="StartAndExpand" FontSize="Small" VerticalOptions="EndAndExpand" TextColor="White" />
+    </Grid>
 </ContentView>
