@@ -30,19 +30,35 @@
     <Shell.FlyoutHeader>
         <local:FlyoutHeader />
     </Shell.FlyoutHeader>
-    <FlyoutItem Title="Météo"
+    <!--<FlyoutItem Title="Météo"
                 Icon="weather.png">
         <Tab>
             <ShellContent>
                 <local:CityPage />
             </ShellContent>
         </Tab>
-    </FlyoutItem>
+    </FlyoutItem>-->
     <FlyoutItem Title="Mes Villes"
                 Icon="city.png">
         <Tab>
             <ShellContent>
                 <local:CitiesPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Settings"
+                Icon="settings.svg">
+        <Tab>
+            <ShellContent>
+                <local:SettingsPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Settings"
+                Icon="weather.png">
+        <Tab>
+            <ShellContent>
+                <local:CityPage />
             </ShellContent>
         </Tab>
     </FlyoutItem>

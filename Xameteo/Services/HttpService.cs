@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xameteo.Models;
 
 namespace Xameteo
 {
@@ -20,13 +21,6 @@ namespace Xameteo
             CityResponse cityResponse = JsonConvert.DeserializeObject<CityResponse>(json);
             return cityResponse.Cities;
         }
-
-        /*public static async Task<Weather> GetWeather(string city)
-        {
-            string json = await Get($"https://api.openweathermap.org/data/2.5/weather?{city}");
-            Weather weather = JsonConvert.DeserializeObject<WeatherResponse>(json);
-            return weather;
-        }*/
 
         public static Task<string> Get(string url)
         {
@@ -61,6 +55,12 @@ namespace Xameteo
                     return Task.FromResult(content);
                 }
             }
+        }
+
+        public static async Task<CompleteWeather> GetWeatherAndForecast(string name)
+        {
+            var result = await Get($"http://api.openweathermap.org/data/2.5/forecast?q={name}&appid=35ff7a413590bd1a0c52e0486cdbed66");
+            return JsonConvert.DeserializeObject<CompleteWeather>(result);
         }
     }
 }
