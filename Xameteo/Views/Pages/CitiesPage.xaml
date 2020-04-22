@@ -12,26 +12,14 @@
     </ContentPage.ToolbarItems>
 
     <Grid Padding="10">
-        <ListView ItemsSource="{Binding Cities}" RowHeight="50" SelectedItem="{Binding SelectedCity, Mode=TwoWay}">
+        <ListView ItemsSource="{Binding Cities}" RowHeight="50">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Grid.Column="1" Text="{Binding FullName}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+                        <Label Text="{Binding FullName}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Label Text="Aucune ville n'a été ajoutée" IsVisible="{Binding HasCities}" FontSize="Subtitle" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-
-        <StackLayout Margin="0,0,10,0" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding DeleteCityCommand}"/>
-            </StackLayout.GestureRecognizers>
-            <Frame HasShadow="True" IsVisible="{Binding ShowTrash}" BackgroundColor="Red" Padding="5" WidthRequest="30" HeightRequest="30" CornerRadius="5">
-                <ffimageloading:SvgCachedImage Source="trash.svg" HeightRequest="100"/>
-            </Frame>
-        </StackLayout>
-        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
     </Grid>
 </ContentPage>

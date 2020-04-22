@@ -1,9 +1,6 @@
 Xameteo.Droid.MainActivity, Xameteo.Android;crc64e1c6f21ee151bad4.MainActivity
 Xameteo.Droid.MainActivity;crc64e1c6f21ee151bad4.MainActivity
 xameteo.droid.MainActivity;crc64e1c6f21ee151bad4.MainActivity
-Xameteo.Droid.RoundedEntryRenderer, Xameteo.Android;crc64e1c6f21ee151bad4.RoundedEntryRenderer
-Xameteo.Droid.RoundedEntryRenderer;crc64e1c6f21ee151bad4.RoundedEntryRenderer
-xameteo.droid.RoundedEntryRenderer;crc64e1c6f21ee151bad4.RoundedEntryRenderer
 FFImageLoading.Forms.Platform.CachedImageRenderer, FFImageLoading.Forms.Platform;crc6414fa209700c2b9f3.CachedImageRenderer
 FFImageLoading.Forms.Platform.CachedImageRenderer;crc6414fa209700c2b9f3.CachedImageRenderer
 ffimageloading.forms.platform.CachedImageRenderer;crc6414fa209700c2b9f3.CachedImageRenderer

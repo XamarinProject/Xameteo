@@ -56,26 +56,27 @@ namespace Xameteo
 
         async void Search()
         {
-            if (IsBusy) return;
-            IsBusy = true;
-
-            SearchResult.Clear();
-            if (String.IsNullOrWhiteSpace(SearchValue))
+            if (!IsBusy)
             {
-                await Shell.Current.DisplayAlert("Erreur", "Veuillez entrer une ville", "OK");
-            }
-            else
-            {
-                foreach (City c in await HttpService.GetCities(SearchValue))
+                IsBusy = true;
+                SearchResult.Clear();
+                if (String.IsNullOrWhiteSpace(SearchValue))
                 {
-                    Device.BeginInvokeOnMainThread(() => SearchResult.Add(c));
+                    await Shell.Current.DisplayAlert("Erreur", "Veuillez entrer une ville", "OK");
                 }
-                Device.BeginInvokeOnMainThread(() =>
+                else
                 {
-                    HasResults = SearchResult.Any();
-                });
+                    foreach (City c in await HttpService.GetCities(SearchValue))
+                    {
+                        Device.BeginInvokeOnMainThread(() => SearchResult.Add(c));
+                    }
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        HasResults = SearchResult.Any();
+                    });
+                }
+                IsBusy = false;
             }
-            IsBusy = false;
         }
 
         public async void ResultSelected()
@@ -83,11 +84,12 @@ namespace Xameteo
             if (!IsBusy)
             {
                 IsBusy = true;
-                LocalStorage.SaveCity(SelectedResult);
+                App.SavedCities.Add(SelectedResult);
                 await Shell.Current.Navigation.PopModalAsync();
                 IsBusy = false;
             }
         }
+            
 
         async void GoBack()
         {
