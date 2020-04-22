@@ -208,3 +208,7 @@ FakesAssemblies/
 .vs/Xameteo/v16/Server/sqlite3/storage.ide-shm
 
 .vs/Xameteo/v16/Server/sqlite3/storage.ide-wal
+
+*.ide-wal
+
+.vs/Xameteo/v16/Server/sqlite3/
