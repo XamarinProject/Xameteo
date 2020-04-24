@@ -42,8 +42,9 @@ namespace Xameteo
                 SetProperty(ref selectedCity, value);
                 if (value != null)
                 {
-                    ShowTrash = true;
+                    //ShowTrash = true;
                     App.SelectedCity = value;
+                    Shell.Current.Navigation.PushAsync(new CityPage(selectedCity));
                 }
             }
         }

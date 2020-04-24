@@ -24,5 +24,14 @@ namespace Xameteo
             base.OnAppearing();
             VM.Init();
         }
+
+        public void OnDelete(object sender, EventArgs args)
+        {
+            var selected = (MenuItem)sender;
+            /*var userToDelete = selected.CommandParameter as User;
+            var name = userToDelete.Username;
+            App.Users.Remove(userToDelete);
+            DisplayAlert("Deletion", name + " has been deleted", "Ok");*/
+        }
     }
 }

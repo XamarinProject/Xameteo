@@ -13,12 +13,10 @@ namespace Xameteo
     public partial class CityPage : ContentPage
     {
         CityViewModel VM;
-        public CityPage()//(City city)
+        public CityPage(City selectedCity)
         {
             InitializeComponent();
-            City testCity = new City();
-            testCity.Name = "Nice";
-            BindingContext = VM = new CityViewModel(testCity);
+            BindingContext = VM = new CityViewModel(selectedCity);
         }
     }
 }
