@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using projectbase.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -85,6 +86,7 @@ namespace Xameteo
                 IsBusy = true;
                 LocalStorage.SaveCity(SelectedResult);
                 await Shell.Current.Navigation.PopModalAsync();
+                this.DisplayAlert(SelectedResult+" a bien été ajoutée à vos favoris");
                 IsBusy = false;
             }
         }
@@ -92,6 +94,11 @@ namespace Xameteo
         async void GoBack()
         {
             await Shell.Current.Navigation.PopModalAsync(true);
+        }
+
+        private void DisplayAlert(string message)
+        {
+            DependencyService.Get<IToastAlert>()?.DisplayAlert(message);
         }
     }
 }

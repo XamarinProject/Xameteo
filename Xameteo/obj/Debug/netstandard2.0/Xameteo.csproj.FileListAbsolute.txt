@@ -31,3 +31,23 @@ E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\Xameteo\obj\Debug\netstan
 E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\Xameteo\obj\Debug\netstandard2.0\ref\Xameteo.dll
 E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.pdb
 E:\LP DAM\Cours\Outils multiplateforme\Xameteo\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.csprojAssemblyReference.cache
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\bin\Debug\netstandard2.0\Xameteo.deps.json
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\bin\Debug\netstandard2.0\Xameteo.dll
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\bin\Debug\netstandard2.0\ref\Xameteo.dll
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\bin\Debug\netstandard2.0\Xameteo.pdb
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.csprojAssemblyReference.cache
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Controls\FlyoutHeader.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Modals\CitySearchModal.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Pages\CitiesPage.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Pages\CityPage.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Pages\SettingsPage.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Views\Templates\PrevisionItemTemplate.xaml.g.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.csproj.CoreCompileInputs.cache
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.AssemblyInfoInputs.cache
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.AssemblyInfo.cs
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.dll
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\ref\Xameteo.dll
+C:\Users\Alexa\Documents\Xamarin\Project\Xameteo\Xameteo\obj\Debug\netstandard2.0\Xameteo.pdb

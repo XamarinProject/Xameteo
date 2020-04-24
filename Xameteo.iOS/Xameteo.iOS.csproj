@@ -64,7 +64,9 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\RoundedEntryRenderer.cs" />
     <Compile Include="Resources\RoundedEntryRenderer.cs" />
+    <Compile Include="Services\ToastAlert.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,4 +177,5 @@
   <ItemGroup>
     <BundleResource Include="Resources\trash.svg" />
   </ItemGroup>
+  <ItemGroup />
 </Project>
