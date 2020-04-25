@@ -36,10 +36,10 @@ namespace Xameteo
                 cities.Add(city);
                 Preferences.Set("cities", JsonConvert.SerializeObject(cities));
 
-                Device.BeginInvokeOnMainThread(async () =>
+               /* Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Application.Current.MainPage.DisplayAlert("Succès", "Votre ville a bien été enregistrées", "OK");
-                });
+                });*/
             }
             catch (Exception e)
             {
@@ -66,10 +66,10 @@ namespace Xameteo
                     }
                 }
                 Preferences.Set("cities", JsonConvert.SerializeObject(cities));
-                Device.BeginInvokeOnMainThread(async () =>
+                /*Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Application.Current.MainPage.DisplayAlert("Succès", "Cette ville a bien été suprimée", "OK");
-                });
+                });*/
             }
             catch (Exception e)
             {

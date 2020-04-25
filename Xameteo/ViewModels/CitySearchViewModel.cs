@@ -86,7 +86,7 @@ namespace Xameteo
                 IsBusy = true;
                 LocalStorage.SaveCity(SelectedResult);
                 await Shell.Current.Navigation.PopModalAsync();
-                this.DisplayAlert(SelectedResult+" a bien été ajoutée à vos favoris");
+                this.DisplayAlert(SelectedResult.Name+" a bien été ajoutée à vos favoris");
                 IsBusy = false;
             }
         }

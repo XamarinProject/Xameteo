@@ -6,7 +6,9 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:local="clr-namespace:Xameteo"
              mc:Ignorable="d"
-             x:Class="Xameteo.CitiesPage">
+             x:Class="Xameteo.CitiesPage"
+             x:Name="MyCitiesPage">
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="plus.png" Command="{Binding AddCityCommand}" />
     </ContentPage.ToolbarItems>
@@ -17,7 +19,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Clicked="OnDelete"
+                            <MenuItem Command="{Binding Path=BindingContext.DeleteCityCommand, Source={x:Reference MyCitiesPage}}"
                                   CommandParameter="{Binding .}"
                                   Text="Delete" IsDestructive="True" />
                         </ViewCell.ContextActions>
@@ -29,14 +31,6 @@
 
         <Label Text="Aucune ville n'a été ajoutée" IsVisible="{Binding HasCities}" FontSize="Subtitle" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
 
-        <StackLayout Margin="0,0,10,0" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
-            <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding DeleteCityCommand}"/>
-            </StackLayout.GestureRecognizers>
-            <Frame HasShadow="True" IsVisible="{Binding ShowTrash}" BackgroundColor="Red" Padding="5" WidthRequest="30" HeightRequest="30" CornerRadius="5">
-                <ffimageloading:SvgCachedImage Source="trash.svg" HeightRequest="100"/>
-            </Frame>
-        </StackLayout>
         <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
     </Grid>
 </ContentPage>

@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using projectbase.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -26,13 +28,6 @@ namespace Xameteo
             set { SetProperty(ref hasCities, value); }
         }
 
-        bool showTrash;
-        public bool ShowTrash
-        {
-            get { return showTrash; }
-            set { SetProperty(ref showTrash, value); }
-        }
-
         City selectedCity;
         public City SelectedCity
         {
@@ -42,24 +37,24 @@ namespace Xameteo
                 SetProperty(ref selectedCity, value);
                 if (value != null)
                 {
-                    //ShowTrash = true;
                     App.SelectedCity = value;
                     Shell.Current.Navigation.PushAsync(new CityPage(selectedCity));
                 }
             }
         }
 
-        public ICommand AddCityCommand => new Command(AddCity);
-        public ICommand DeleteCityCommand => new Command(DeleteCity);
+        public ICommand DeleteCityCommand { get; set; }
 
+        public ICommand AddCityCommand => new Command(AddCity);
+    
         public CitiesViewModel()
         {
             Init();
+            DeleteCityCommand = new Command(async (Object city) => await DeleteCity(city));
         }
 
         public void Init()
         {
-            ShowTrash = false;
             Cities = LocalStorage.GetCities();
             HasCities = !Cities.Any();
         }
@@ -68,15 +63,25 @@ namespace Xameteo
         {
             await Shell.Current.Navigation.PushModalAsync(new CitySearchModal());
         }
-        void DeleteCity()
+
+        private async Task DeleteCity(Object sender)
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
                 bool answer = await Application.Current.MainPage.DisplayAlert("Supprimer", "Etes-vous sûr de vouloir supprimer cette ville ?", "Oui", "Annuler");
                 if (answer)
-                    LocalStorage.RemoveCity(SelectedCity);
-                Init();
+                {
+                    LocalStorage.RemoveCity((City)sender);
+                    Init();
+                    DisplayAlert(((City)sender).Name + " a bien été supprimée de vos favoris");
+                }  
+               
             });
+        }
+
+        private void DisplayAlert(string message)
+        {
+            DependencyService.Get<IToastAlert>()?.DisplayAlert(message);
         }
     }
 }
