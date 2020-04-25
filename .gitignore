@@ -6,6 +6,7 @@
 *.user
 *.sln.docstates
 .vs/*
+*.cache
 
 # Build results
 Debug/
