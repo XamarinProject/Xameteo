@@ -177,5 +177,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\trash.svg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\settings.png" />
+  </ItemGroup>
 </Project>

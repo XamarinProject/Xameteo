@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,10 +13,16 @@ namespace Xameteo
     public partial class CityPage : ContentPage
     {
         CityViewModel VM;
-        public CityPage(City selectedCity)
+        public CityPage()
         {
             InitializeComponent();
-            BindingContext = VM = new CityViewModel(selectedCity);
+            BindingContext = VM = new CityViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            VM.LoadWeatherData();
         }
     }
 }

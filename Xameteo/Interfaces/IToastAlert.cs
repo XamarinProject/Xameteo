@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace projectbase.Interfaces
+namespace Xameteo
 {
     public interface IToastAlert
     {

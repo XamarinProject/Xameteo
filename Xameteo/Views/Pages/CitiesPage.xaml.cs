@@ -24,12 +24,5 @@ namespace Xameteo
             base.OnAppearing();
             VM.Init();
         }
-
-        public void OnDelete(object sender, EventArgs args)
-        {
-            var selected = (MenuItem)sender;
-            var cityToDelete = selected.CommandParameter as City;
-            var name = cityToDelete.FullName;
-        }
     }
 }

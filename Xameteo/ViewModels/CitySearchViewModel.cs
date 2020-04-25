@@ -1,13 +1,6 @@
-﻿using Newtonsoft.Json;
-using projectbase.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -86,7 +79,6 @@ namespace Xameteo
                 IsBusy = true;
                 LocalStorage.SaveCity(SelectedResult);
                 await Shell.Current.Navigation.PopModalAsync();
-                this.DisplayAlert(SelectedResult.Name+" a bien été ajoutée à vos favoris");
                 IsBusy = false;
             }
         }

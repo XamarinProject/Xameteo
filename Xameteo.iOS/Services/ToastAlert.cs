@@ -1,14 +1,9 @@
 ﻿using Foundation;
-using projectbase.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UIKit;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(projectbase.iOS.Services.ToastAlert))]
-namespace projectbase.iOS.Services
+[assembly: Dependency(typeof(Xameteo.iOS.Services.ToastAlert))]
+namespace Xameteo.iOS.Services
 {
     class ToastAlert : IToastAlert
     {

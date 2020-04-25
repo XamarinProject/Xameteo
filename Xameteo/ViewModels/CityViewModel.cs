@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xameteo.Models;
 
@@ -11,9 +10,8 @@ namespace Xameteo
 {
     public class CityViewModel : BaseViewModel
     {
-        public CityViewModel(City city)
+        public CityViewModel()
         {
-            this.city = city;
             this.LoadWeatherData();
         }
 
@@ -65,7 +63,7 @@ namespace Xameteo
         public string DayOrNight
         {
             get {
-                    double actualTime = Double.Parse(DateTime.Now.ToString().Substring(11, 2));
+                    int actualTime = DateTime.Now.Hour;
                     if ( actualTime > 9 && actualTime < 18) {
                         return "day";
                     } else if (actualTime > 21 && actualTime < 6) {
@@ -98,10 +96,21 @@ namespace Xameteo
         }
 
         public ICommand GetCommand => new Command(() => Task.Run(LoadWeatherData));
-        async Task LoadWeatherData()
+        public async Task LoadWeatherData()
         {
             if (IsBusy) return;
             IsBusy = true;
+
+            if (Preferences.ContainsKey("city"))
+            {
+                City = LocalStorage.GetLastSelectedCity();
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Aucune ville séléctionnée", "Veuillez séléctionner une ville", "OK");
+                await Shell.Current.GoToAsync("//CitiesPage");
+                return;
+            }
 
             CompleteWeather completeWeather = await HttpService.GetWeatherAndForecast(City.Name);
             
@@ -128,7 +137,7 @@ namespace Xameteo
             }
             else
             {
-                //toast error
+                DependencyService.Get<IToastAlert>().DisplayAlert("Récupération de la météo impossible");
             }
             IsBusy = false;
         }

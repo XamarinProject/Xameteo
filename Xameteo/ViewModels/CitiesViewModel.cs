@@ -1,13 +1,8 @@
-﻿using Newtonsoft.Json;
-using projectbase.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Xameteo
@@ -37,20 +32,19 @@ namespace Xameteo
                 SetProperty(ref selectedCity, value);
                 if (value != null)
                 {
-                    App.SelectedCity = value;
-                    Shell.Current.Navigation.PushAsync(new CityPage(selectedCity));
+                    LocalStorage.SaveLastSelectedCity(value);
+                    Shell.Current.GoToAsync("//CityPage");
                 }
             }
         }
 
-        public ICommand DeleteCityCommand { get; set; }
+        public ICommand DeleteCityCommand => new Command<City>(async city => await DeleteCity(city));
 
         public ICommand AddCityCommand => new Command(AddCity);
     
         public CitiesViewModel()
         {
             Init();
-            DeleteCityCommand = new Command(async (Object city) => await DeleteCity(city));
         }
 
         public void Init()
@@ -64,24 +58,17 @@ namespace Xameteo
             await Shell.Current.Navigation.PushModalAsync(new CitySearchModal());
         }
 
-        private async Task DeleteCity(Object sender)
+        public async Task DeleteCity(City city)
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
                 bool answer = await Application.Current.MainPage.DisplayAlert("Supprimer", "Etes-vous sûr de vouloir supprimer cette ville ?", "Oui", "Annuler");
                 if (answer)
                 {
-                    LocalStorage.RemoveCity((City)sender);
+                    LocalStorage.RemoveCity(city);
                     Init();
-                    DisplayAlert(((City)sender).Name + " a bien été supprimée de vos favoris");
                 }  
-               
             });
-        }
-
-        private void DisplayAlert(string message)
-        {
-            DependencyService.Get<IToastAlert>()?.DisplayAlert(message);
         }
     }
 }

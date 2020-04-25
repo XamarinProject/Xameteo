@@ -9,6 +9,40 @@ namespace Xameteo
 { 
     public class LocalStorage
     {
+        public static City GetLastSelectedCity()
+        {
+            try
+            {
+                var city = JsonConvert.DeserializeObject<City>(Preferences.Get("city", String.Empty));
+                return city;
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+                return null;
+            }
+        }
+
+        public static void SaveLastSelectedCity(City city)
+        {
+            if (city == null) return;
+
+            try
+            {
+                Preferences.Set("city", JsonConvert.SerializeObject(city));
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+            }
+        }
+
         public static ObservableCollection<City> GetCities()
         {
             try
@@ -36,10 +70,7 @@ namespace Xameteo
                 cities.Add(city);
                 Preferences.Set("cities", JsonConvert.SerializeObject(cities));
 
-               /* Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Application.Current.MainPage.DisplayAlert("Succès", "Votre ville a bien été enregistrées", "OK");
-                });*/
+                DependencyService.Get<IToastAlert>().DisplayAlert("Ville sauvegardée");
             }
             catch (Exception e)
             {
@@ -66,10 +97,7 @@ namespace Xameteo
                     }
                 }
                 Preferences.Set("cities", JsonConvert.SerializeObject(cities));
-                /*Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Application.Current.MainPage.DisplayAlert("Succès", "Cette ville a bien été suprimée", "OK");
-                });*/
+                DependencyService.Get<IToastAlert>().DisplayAlert("Ville suprimée");
             }
             catch (Exception e)
             {

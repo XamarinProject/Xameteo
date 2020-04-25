@@ -4,7 +4,6 @@ namespace Xameteo
 {
     public partial class App : Application
     {
-        public static City SelectedCity;
         public App()
         {
             InitializeComponent();
