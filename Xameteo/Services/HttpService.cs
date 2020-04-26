@@ -59,7 +59,7 @@ namespace Xameteo
 
         public static async Task<CompleteWeather> GetWeatherAndForecast(string name)
         {
-            var result = await Get($"https://api.openweathermap.org/data/2.5/forecast?q=nice&appid=35ff7a413590bd1a0c52e0486cdbed66");
+            var result = await Get($"https://api.openweathermap.org/data/2.5/forecast?q={name}&appid=35ff7a413590bd1a0c52e0486cdbed66");
             return JsonConvert.DeserializeObject<CompleteWeather>(result);
         }
     }

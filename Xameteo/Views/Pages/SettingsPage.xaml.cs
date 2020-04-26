@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xameteo.ViewModels;
 
-namespace Xameteo.Views.Pages
+namespace Xameteo
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
+        SettingsViewModel VM;
         public SettingsPage()
         {
-            //InitializeComponent();
+            InitializeComponent();
+            BindingContext = VM = new SettingsViewModel();
         }
     }
 }

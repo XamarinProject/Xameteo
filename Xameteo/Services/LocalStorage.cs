@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xameteo.Models;
 
 namespace Xameteo
 { 
@@ -23,6 +24,83 @@ namespace Xameteo
                     await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
                 });
                 return null;
+            }
+        }
+
+        internal static Settings GetSettings()
+        {
+            try
+            {
+                if (Preferences.Get("settings", String.Empty) == String.Empty )
+                {
+                    Settings set = new Settings();
+                    Preferences.Set("settings", JsonConvert.SerializeObject(set));
+                }
+                Settings settings = JsonConvert.DeserializeObject<Settings>(Preferences.Get("settings", String.Empty));
+                DependencyService.Get<IToastAlert>().DisplayAlert("" + settings.CityDetails);
+                return settings;
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+                return new Settings();
+            }
+        }
+
+        internal static void SetTemperatureDetailsSettings()
+        {
+            try
+            {
+                var settings = GetSettings();
+                settings.TemperatureDetails = !settings.TemperatureDetails;
+                Preferences.Set("settings", JsonConvert.SerializeObject(settings));
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+            }
+        }
+
+        internal static void SetSunsetSunriseDetailsSettings()
+        {
+            try
+            {
+                var settings = GetSettings();
+                settings.SunsetSunriseDetails = !settings.SunsetSunriseDetails;
+                Preferences.Set("settings", JsonConvert.SerializeObject(settings));
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+            }
+        }
+
+        internal static void SetCityDetailsSettings()
+        {
+            try
+            {
+                Settings settings = new Settings();
+                settings = GetSettings();
+                DependencyService.Get<IToastAlert>().DisplayAlert(""+settings.CityDetails);
+                bool state = settings.CityDetails;
+                settings.CityDetails = !state;
+                Preferences.Set("settings", JsonConvert.SerializeObject(settings));
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", "SetCityDetailsSettings:"+e.Message, "OK");
+                });
             }
         }
 
@@ -232,6 +310,13 @@ namespace Xameteo
                     await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
                 });
             }
+        }
+
+        internal static void ResetAll()
+        {
+            Preferences.Remove("cities");
+            Preferences.Remove("city");
+            Preferences.Remove("favoriteCity");
         }
     }
 }

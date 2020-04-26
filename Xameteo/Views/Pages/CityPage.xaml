@@ -12,11 +12,14 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="120"/>
-                <RowDefinition Height="120"/>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="140"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -24,7 +27,7 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- HEADER -->
             <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
             <Image Source="{Binding DayOrNight}" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
@@ -54,7 +57,7 @@
                 <BoxView BackgroundColor="LightGray" HeightRequest="1" VerticalOptions="Center"  Margin="10,0,10,0"/>
             </StackLayout >
             <!-- HEADER -->
-            
+
             <!-- BODY -->
             <!-- Actual weather -->
             <Label Grid.Row="3" 
@@ -74,7 +77,7 @@
                    HorizontalOptions="Fill" 
                    VerticalOptions="Fill" 
                    Aspect="AspectFit" Rotation="{Binding Wind}"/>
-            
+
             <!-- Previsions -->
             <RelativeLayout Grid.Row="5" Grid.ColumnSpan="3"
 							VerticalOptions="Start">
@@ -114,14 +117,57 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </RelativeLayout>
+            <Grid Grid.Row="6" Grid.ColumnSpan="3" IsVisible="{Binding Settings.CityDetails}" Margin="20,0,20,0" BackgroundColor="LightGray">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding City.Country}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding City.Latitude}"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding City.Longitude}"/>
+                <Label Grid.Row="0" Grid.Column="0" Text="Pays :" HorizontalOptions="End"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Latitude :" HorizontalOptions="End"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Longitude :" HorizontalOptions="End"/>
+            </Grid>
 
+            <Grid Grid.Row="7" Grid.ColumnSpan="3" IsVisible="{Binding Settings.SunsetSunriseDetails}" Margin="20,20,20,0" BackgroundColor="LightYellow">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Sunrise}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Sunset}"/>
+                
+                <Label Grid.Row="0" Grid.Column="0" Text="Levé du soleil :" HorizontalOptions="End"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Couché du soleil :" HorizontalOptions="End"/>
+            </Grid>
 
+            <Grid Grid.Row="8" Grid.ColumnSpan="3" IsVisible="{Binding Settings.TemperatureDetails}" Margin="20,20,20,0" BackgroundColor="LightPink">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding MaxTemp}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding MinTemp}"/>
 
-            <!-- replace this by toast 
-                <Label Text="{Binding ErrorMessage}" TextColor="Red" Grid.Row="7" Grid.ColumnSpan="3" HorizontalTextAlignment="Center"/>
-            -->
+                <Label Grid.Row="0" Grid.Column="0" Text="Température maximale :" HorizontalOptions="End"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Température minimale :" HorizontalOptions="End"/>
+            </Grid>
             <!-- BODY -->
-            
+
         </Grid>
     </ScrollView>
 </ContentPage>

@@ -6,13 +6,22 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xameteo.Models;
 
-namespace Xameteo
+namespace Xameteo.ViewModels
 {
     public class CityViewModel : BaseViewModel
     {
+       
         public CityViewModel()
         {
             this.LoadWeatherData();
+            this.settings = LocalStorage.GetSettings();
+        }
+
+        Settings settings;
+        public Settings Settings
+        {
+            get { return settings; }
+            set { SetProperty(ref settings, value); }
         }
 
         City city;
@@ -63,10 +72,10 @@ namespace Xameteo
         public string DayOrNight
         {
             get {
-                    int actualTime = DateTime.Now.Hour;
+                    int actualTime = DateTime.UtcNow.AddSeconds(timezone).Hour;
                     if ( actualTime > 9 && actualTime < 18) {
                         return "day";
-                    } else if (actualTime > 21 && actualTime < 6) {
+                    } else if (actualTime > 21 || actualTime < 6) {
                         return "night";
                     } else {
                         return "mid";
@@ -90,10 +99,25 @@ namespace Xameteo
             set { SetProperty(ref previsions, value); }
         }
 
+        private int timezone;
+        public int Timezone
+        {
+            get { return timezone; }
+            set { timezone = value; }
+        }
+
         public string Time
         {
-            get { return DateTime.Now.ToShortTimeString(); }
+            get { return DateTime.UtcNow.AddSeconds(timezone).ToShortTimeString(); }
         }
+
+        public string Sunset { get; set; }
+
+        public string Sunrise { get; set; }
+
+        public string MinTemp { get; set; }
+
+        public string MaxTemp { get; set; }
 
         public ICommand GetCommand => new Command(() => Task.Run(LoadWeatherData));
         public async Task LoadWeatherData()
@@ -122,7 +146,13 @@ namespace Xameteo
                 Temperature = $"{Math.Round(completeWeather.List[0].Main.Temp - 273.15)}°C";
                 Wind = Math.Round(-completeWeather.List[0].Wind.Speed, 1);
                 Tendency = this.TendencyAnalyser(completeWeather.List[0].Weather[0].Main.ToString());
-                for(int i = 1; i < completeWeather.List.Length; i++)
+                Timezone = (int)completeWeather.City.Timezone;
+                Sunrise = DateTime.FromFileTime(completeWeather.City.Sunrise).ToShortTimeString();
+                Sunset = DateTime.FromFileTime(completeWeather.City.Sunset).ToShortTimeString();
+                MinTemp = $"{Math.Round(completeWeather.List[0].Main.TempMin - 273.15)}°C";
+                MaxTemp = $"{Math.Round(completeWeather.List[0].Main.TempMax - 273.15)}°C";
+
+                for (int i = 1; i < completeWeather.List.Length; i++)
                 {
                     prev = new Prevision(
                         completeWeather.List[i].DtTxt.ToString().Substring(0, 10),
