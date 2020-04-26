@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <item 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <color android:color="@color/splash_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </item>
+        <item 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <bitmap
+                android:layout_width="72dp"
+                android:layout_height="100dp"
+                android:src="@drawable/splash"
+                android:tileMode="disabled"
+                android:gravity="center"/>
+        </item>
+    </layer-list>
