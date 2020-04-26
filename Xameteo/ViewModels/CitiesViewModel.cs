@@ -38,10 +38,12 @@ namespace Xameteo
             }
         }
 
-        public ICommand DeleteCityCommand => new Command<City>(async city => await DeleteCity(city));
+        public ICommand DeleteCityCommand => new Command<City>(async city => DeleteCity(city));
 
         public ICommand AddCityCommand => new Command(AddCity);
-    
+
+        public ICommand SelectFavoriteCityCommand => new Command<City>(async city => UpdateFavoriteCity(city));
+
         public CitiesViewModel()
         {
             Init();
@@ -58,7 +60,7 @@ namespace Xameteo
             await Shell.Current.Navigation.PushModalAsync(new CitySearchModal());
         }
 
-        public async Task DeleteCity(City city)
+        public void DeleteCity(City city)
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
@@ -67,8 +69,18 @@ namespace Xameteo
                 {
                     LocalStorage.RemoveCity(city);
                     Init();
-                }  
+                }
             });
         }
+
+        private void UpdateFavoriteCity(City city)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                LocalStorage.UpdateFavoriteCity(city);
+                Init();
+            });
+        }
+
     }
 }

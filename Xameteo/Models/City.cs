@@ -49,5 +49,8 @@ namespace Xameteo
         {
             get { return $"{Temperature}°C"; }
         }
+
+        [JsonProperty]
+        public bool IsFavorite { get; set; }
     }
 }

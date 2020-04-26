@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Class="Xameteo.CitiesPage"
              x:Name="MyCitiesPage">
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="plus.png" Command="{Binding AddCityCommand}" />
     </ContentPage.ToolbarItems>
@@ -21,9 +21,19 @@
                         <ViewCell.ContextActions>
                             <MenuItem Command="{Binding Path=BindingContext.DeleteCityCommand, Source={x:Reference MyCitiesPage}}"
                                   CommandParameter="{Binding .}"
-                                  Text="Delete" IsDestructive="True" />
+                                  Text="Supprimer" IsDestructive="True" />
+                            <MenuItem Command="{Binding Path=BindingContext.SelectFavoriteCityCommand, Source={x:Reference MyCitiesPage}}"
+                                  CommandParameter="{Binding .}"
+                                  Text="Favoris" />
                         </ViewCell.ContextActions>
-                        <Label Grid.Column="1" Text="{Binding FullName}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+                            <Image Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Source="star" IsVisible="{Binding IsFavorite}"/>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

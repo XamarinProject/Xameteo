@@ -107,9 +107,7 @@ namespace Xameteo
             }
             else
             {
-                await Shell.Current.DisplayAlert("Aucune ville séléctionnée", "Veuillez séléctionner une ville", "OK");
-                await Shell.Current.GoToAsync("//CitiesPage");
-                return;
+                City = LocalStorage.GetFavoriteCity();
             }
 
             CompleteWeather completeWeather = await HttpService.GetWeatherAndForecast(City.Name);
@@ -134,12 +132,19 @@ namespace Xameteo
                         );
                     Previsions.Add(prev);
                 }
+
             }
             else
             {
                 DependencyService.Get<IToastAlert>().DisplayAlert("Récupération de la météo impossible");
             }
+            if(Preferences.ContainsKey("city"))
+            {
+                LocalStorage.ResetSelectedCity();
+            }
+            
             IsBusy = false;
+
         }
 
         private string TendencyAnalyser(string tend)

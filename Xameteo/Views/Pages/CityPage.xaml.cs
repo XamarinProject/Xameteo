@@ -24,5 +24,12 @@ namespace Xameteo
             base.OnAppearing();
             VM.LoadWeatherData();
         }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            LocalStorage.ResetSelectedCity();
+        }
     }
 }

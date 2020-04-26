@@ -43,6 +43,24 @@ namespace Xameteo
             }
         }
 
+        internal static void ResetSelectedCity()
+        {
+            try
+            {
+                if(Preferences.ContainsKey("city"))
+                {
+                    Preferences.Remove("city");
+                }
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+            }
+        }
+
         public static ObservableCollection<City> GetCities()
         {
             try
@@ -67,10 +85,88 @@ namespace Xameteo
             try
             {
                 ObservableCollection<City> cities = GetCities();
+                 if(cities.Count == 0)
+                 {
+                     city.IsFavorite = true;
+                 } 
+                 else
+                 {
+                     city.IsFavorite = false;
+                 }
                 cities.Add(city);
                 Preferences.Set("cities", JsonConvert.SerializeObject(cities));
 
                 DependencyService.Get<IToastAlert>().DisplayAlert("Ville sauvegardée");
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+            }
+        }
+
+        internal static void UpdateFavoriteCity(City city)
+        {
+            if (city == null) return;
+
+            try
+            {
+                Preferences.Set("favoriteCity", JsonConvert.SerializeObject(city));
+                ObservableCollection<City> cities = GetCities();
+                foreach(City item in cities)
+                {
+                    if (item.WikiDataId.Equals(city.WikiDataId))
+                    {
+                        item.IsFavorite = true;
+                    } else
+                    {
+                        item.IsFavorite = false;
+                    }
+                }
+                Preferences.Set("cities", JsonConvert.SerializeObject(cities));
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+            }
+        }
+
+        internal static City GetFavoriteCity()
+        {
+            try
+            {
+                var city = JsonConvert.DeserializeObject<City>(Preferences.Get("favoriteCity", String.Empty));
+                // Default value
+                if(city == null || city.Name == null)
+                {
+                    city = new City();
+                    city.Name = "Paris";
+                }
+                return city;
+            }
+            catch (Exception e)
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
+                });
+                return null;
+            }
+        }
+
+        internal static void ResetFavoriteCity()
+        {
+            try
+            {
+                if (Preferences.ContainsKey("favoriteCity"))
+                {
+                    Preferences.Remove("favoriteCity");
+                }
             }
             catch (Exception e)
             {
@@ -94,6 +190,17 @@ namespace Xameteo
                     {
                         cities.Remove(c);
                         break;
+                    }
+                }
+                if(city.IsFavorite)
+                {
+                    if(cities.Count > 0)
+                    {
+                        cities[0].IsFavorite = true;
+                        UpdateFavoriteCity(cities[0]);
+                    } else
+                    {
+                        ResetFavoriteCity();
                     }
                 }
                 Preferences.Set("cities", JsonConvert.SerializeObject(cities));
