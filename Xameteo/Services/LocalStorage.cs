@@ -85,18 +85,25 @@ namespace Xameteo
             try
             {
                 ObservableCollection<City> cities = GetCities();
-                 if(cities.Count == 0)
-                 {
-                     city.IsFavorite = true;
-                 } 
-                 else
-                 {
-                     city.IsFavorite = false;
-                 }
-                cities.Add(city);
-                Preferences.Set("cities", JsonConvert.SerializeObject(cities));
+                if(cities.Count == 0)
+                {
+                    city.IsFavorite = true;
+                } 
+                else
+                {
+                    city.IsFavorite = false;
+                }
+                if (!CheckIfAlreadyIn(city, cities))
+                {
+                    cities.Add(city);
+                    Preferences.Set("cities", JsonConvert.SerializeObject(cities));
 
-                DependencyService.Get<IToastAlert>().DisplayAlert("Ville sauvegardée");
+                    DependencyService.Get<IToastAlert>().DisplayAlert("Ville sauvegardée");
+                }
+                else
+                {
+                    DependencyService.Get<IToastAlert>().DisplayAlert("Cette ville est déjà dans votre liste");
+                }
             }
             catch (Exception e)
             {
@@ -105,6 +112,18 @@ namespace Xameteo
                     await Application.Current.MainPage.DisplayAlert("Erreur", e.Message, "OK");
                 });
             }
+        }
+
+        private static bool CheckIfAlreadyIn(City city, ObservableCollection<City> cities)
+        {
+           foreach(City item in cities)
+           {
+                if(item.WikiDataId.Equals(city.WikiDataId) || item.FullName.Equals(city.FullName))
+                {
+                    return true;
+                } 
+           }
+           return false;
         }
 
         internal static void UpdateFavoriteCity(City city)
