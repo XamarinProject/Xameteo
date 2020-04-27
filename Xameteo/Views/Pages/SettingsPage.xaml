@@ -21,24 +21,24 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
-                <Switch Grid.Column="0" Grid.Row="0" IsToggled="{Binding settings.CityDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
+                <Switch Grid.Column="0" Grid.Row="0" IsToggled="{Binding CityDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
                     <Switch.Behaviors>
                         <behavior:SwitchBehavior Command="{Binding SetCityDetailsSettingsCommand}"/>
                     </Switch.Behaviors>
                 </Switch> 
                 <Label Grid.Column="1" Grid.Row="0" Text="Afficher les informations sur la ville" VerticalOptions="Center" HorizontalOptions="Center"/>
-               <Switch Grid.Column="0" Grid.Row="1" IsToggled="{Binding settings.SunsetSunriseDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
+                <Switch Grid.Column="0" Grid.Row="1" IsToggled="{Binding SunsetDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
                     <Switch.Behaviors>
                         <behavior:SwitchBehavior Command="{Binding SetSunsetDetailsSettingsCommand}"/>
                     </Switch.Behaviors>
                 </Switch>
                 <Label Grid.Column="1" Grid.Row="1" Text="Afficher les informations d'éphéméride" VerticalOptions="Center" HorizontalOptions="Center"/>
-                <Switch Grid.Column="0" Grid.Row="2" IsToggled="{Binding settings.TemperatureDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
+                <Switch Grid.Column="0" Grid.Row="2" IsToggled="{Binding TemperatureDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
                     <Switch.Behaviors>
                         <behavior:SwitchBehavior Command="{Binding SetTemperatureDetailsSettingsCommand}"/>
                     </Switch.Behaviors>
                 </Switch>
-                <Label Grid.Column="1" Grid.Row="2" Text="Afficher les informations sur la ville" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Column="1" Grid.Row="2" Text="Afficher les informations de température" VerticalOptions="Center" HorizontalOptions="Center"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

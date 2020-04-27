@@ -24,6 +24,7 @@ namespace Xameteo
         {
             base.OnAppearing();
             VM.LoadWeatherData();
+            VM.LoadSettings();
         }
 
         protected override void OnDisappearing()

@@ -37,7 +37,6 @@ namespace Xameteo
                     Preferences.Set("settings", JsonConvert.SerializeObject(set));
                 }
                 Settings settings = JsonConvert.DeserializeObject<Settings>(Preferences.Get("settings", String.Empty));
-                DependencyService.Get<IToastAlert>().DisplayAlert("" + settings.CityDetails);
                 return settings;
             }
             catch (Exception e)
@@ -90,7 +89,6 @@ namespace Xameteo
             {
                 Settings settings = new Settings();
                 settings = GetSettings();
-                DependencyService.Get<IToastAlert>().DisplayAlert(""+settings.CityDetails);
                 bool state = settings.CityDetails;
                 settings.CityDetails = !state;
                 Preferences.Set("settings", JsonConvert.SerializeObject(settings));
@@ -317,6 +315,7 @@ namespace Xameteo
             Preferences.Remove("cities");
             Preferences.Remove("city");
             Preferences.Remove("favoriteCity");
+            Preferences.Remove("settings");
         }
     }
 }

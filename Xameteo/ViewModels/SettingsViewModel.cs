@@ -12,7 +12,27 @@ namespace Xameteo.ViewModels
         private Settings settings;
         public SettingsViewModel()
         {
-            settings = LocalStorage.GetSettings();
+            LoadSettings();    
+        }
+
+        public void LoadSettings()
+        {
+            this.settings = LocalStorage.GetSettings();
+            DependencyService.Get<IToastAlert>().DisplayAlert("Settings : " + settings.CityDetails + " " + settings.SunsetSunriseDetails + " " + settings.TemperatureDetails);
+        }
+
+        public bool TemperatureDetails
+        {
+            get { return settings.TemperatureDetails; }
+        }
+        public bool CityDetails
+        {
+            get { return settings.CityDetails; }
+        }
+
+        public bool SunsetDetails
+        {
+            get { return settings.SunsetSunriseDetails; }
         }
 
         public ICommand SetSunsetDetailsSettingsCommand => new Command(SetSunsetSunriseDetailsSettings);

@@ -14,14 +14,41 @@ namespace Xameteo.ViewModels
         public CityViewModel()
         {
             this.LoadWeatherData();
-            this.settings = LocalStorage.GetSettings();
+            LoadSettings();
         }
 
         Settings settings;
         public Settings Settings
         {
             get { return settings; }
-            set { SetProperty(ref settings, value); }
+            set { 
+                SetProperty(ref settings, value);
+                SetProperty(ref cityDetails, value.CityDetails);
+                SetProperty(ref temperatureDetails, value.TemperatureDetails);
+                SetProperty(ref sunsetSunriseDetails, value.SunsetSunriseDetails);
+            }
+        }
+
+        bool cityDetails;
+        public bool CityDetails
+        {
+            get { return cityDetails; }
+        }
+        bool sunsetSunriseDetails;
+        public bool SunsetSunriseDetails
+        {
+            get { return sunsetSunriseDetails; }
+        }
+        bool temperatureDetails;
+        public bool TemperatureDetails
+        {
+            get { return temperatureDetails; }
+        }
+
+        public void LoadSettings()
+        {
+            Settings = LocalStorage.GetSettings();
+            DependencyService.Get<IToastAlert>().DisplayAlert("Settings : " + settings.CityDetails + " " + settings.SunsetSunriseDetails + " " + settings.TemperatureDetails);
         }
 
         City city;

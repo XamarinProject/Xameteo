@@ -19,5 +19,10 @@ namespace Xameteo
             InitializeComponent();
             BindingContext = VM = new SettingsViewModel();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            VM.LoadSettings();
+        }
     }
 }

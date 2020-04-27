@@ -13,11 +13,8 @@ namespace Xameteo.Models
             SunsetSunriseDetails = true;
             TemperatureDetails = true;
         }
-        [JsonProperty("CityDetails")]
         public bool CityDetails { set; get; }
-        [JsonProperty("SunsetSunriseDetails")]
         public bool SunsetSunriseDetails { set; get; }
-        [JsonProperty("TemperatureDetails")]
         public bool TemperatureDetails { set; get; }
 
     }

@@ -117,7 +117,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </RelativeLayout>
-            <Grid Grid.Row="6" Grid.ColumnSpan="3" IsVisible="{Binding Settings.CityDetails}" Margin="20,0,20,0" BackgroundColor="LightGray">
+            <Grid Grid.Row="6" Grid.ColumnSpan="3" IsVisible="{Binding CityDetails}" Margin="20,0,20,0" BackgroundColor="LightGray">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -135,7 +135,7 @@
                 <Label Grid.Row="2" Grid.Column="0" Text="Longitude :" HorizontalOptions="End"/>
             </Grid>
 
-            <Grid Grid.Row="7" Grid.ColumnSpan="3" IsVisible="{Binding Settings.SunsetSunriseDetails}" Margin="20,20,20,0" BackgroundColor="LightYellow">
+            <Grid Grid.Row="7" Grid.ColumnSpan="3" IsVisible="{Binding SunsetSunriseDetails}" Margin="20,20,20,0" BackgroundColor="LightYellow">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -151,7 +151,7 @@
                 <Label Grid.Row="1" Grid.Column="0" Text="Couché du soleil :" HorizontalOptions="End"/>
             </Grid>
 
-            <Grid Grid.Row="8" Grid.ColumnSpan="3" IsVisible="{Binding Settings.TemperatureDetails}" Margin="20,20,20,0" BackgroundColor="LightPink">
+            <Grid Grid.Row="8" Grid.ColumnSpan="3" IsVisible="{Binding TemperatureDetails}" Margin="20,20,20,0" BackgroundColor="LightPink">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
