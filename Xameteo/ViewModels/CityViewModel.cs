@@ -23,9 +23,9 @@ namespace Xameteo.ViewModels
             get { return settings; }
             set { 
                 SetProperty(ref settings, value);
-                SetProperty(ref cityDetails, value.CityDetails);
-                SetProperty(ref temperatureDetails, value.TemperatureDetails);
-                SetProperty(ref sunsetSunriseDetails, value.SunsetSunriseDetails);
+                CityDetails = settings.CityDetails;
+                TemperatureDetails = settings.TemperatureDetails;
+                SunsetSunriseDetails = settings.SunsetSunriseDetails;
             }
         }
 
@@ -33,22 +33,24 @@ namespace Xameteo.ViewModels
         public bool CityDetails
         {
             get { return cityDetails; }
+            set { SetProperty(ref cityDetails, value); }
         }
         bool sunsetSunriseDetails;
         public bool SunsetSunriseDetails
         {
             get { return sunsetSunriseDetails; }
+            set { SetProperty(ref sunsetSunriseDetails, value); }
         }
         bool temperatureDetails;
         public bool TemperatureDetails
         {
             get { return temperatureDetails; }
+            set { SetProperty(ref temperatureDetails, value); }
         }
 
         public void LoadSettings()
         {
             Settings = LocalStorage.GetSettings();
-            DependencyService.Get<IToastAlert>().DisplayAlert("Settings : " + settings.CityDetails + " " + settings.SunsetSunriseDetails + " " + settings.TemperatureDetails);
         }
 
         City city;

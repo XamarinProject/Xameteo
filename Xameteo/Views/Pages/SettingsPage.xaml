@@ -27,7 +27,7 @@
                     </Switch.Behaviors>
                 </Switch> 
                 <Label Grid.Column="1" Grid.Row="0" Text="Afficher les informations sur la ville" VerticalOptions="Center" HorizontalOptions="Center"/>
-                <Switch Grid.Column="0" Grid.Row="1" IsToggled="{Binding SunsetDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
+                <Switch Grid.Column="0" Grid.Row="1" IsToggled="{Binding SunsetSunriseDetails}" OnColor="GreenYellow" ThumbColor="WhiteSmoke">
                     <Switch.Behaviors>
                         <behavior:SwitchBehavior Command="{Binding SetSunsetDetailsSettingsCommand}"/>
                     </Switch.Behaviors>

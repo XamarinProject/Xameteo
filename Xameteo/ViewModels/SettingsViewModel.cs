@@ -9,31 +9,47 @@ namespace Xameteo.ViewModels
 {
     class SettingsViewModel : BaseViewModel
     {
-        private Settings settings;
         public SettingsViewModel()
         {
             LoadSettings();    
         }
 
-        public void LoadSettings()
+        Settings settings;
+        public Settings Settings
         {
-            this.settings = LocalStorage.GetSettings();
-            DependencyService.Get<IToastAlert>().DisplayAlert("Settings : " + settings.CityDetails + " " + settings.SunsetSunriseDetails + " " + settings.TemperatureDetails);
+            get { return settings; }
+            set {
+                SetProperty(ref settings, value);
+                CityDetails = settings.CityDetails;
+                TemperatureDetails = settings.TemperatureDetails;
+                SunsetSunriseDetails = settings.SunsetSunriseDetails;
+            }
         }
 
-        public bool TemperatureDetails
-        {
-            get { return settings.TemperatureDetails; }
-        }
+        bool cityDetails;
         public bool CityDetails
         {
-            get { return settings.CityDetails; }
+            get { return cityDetails; }
+            set { SetProperty(ref cityDetails, value); }
+        }
+        bool sunsetSunriseDetails;
+        public bool SunsetSunriseDetails
+        {
+            get { return sunsetSunriseDetails; }
+            set { SetProperty(ref sunsetSunriseDetails, value); }
+        }
+        bool temperatureDetails;
+        public bool TemperatureDetails
+        {
+            get { return temperatureDetails; }
+            set { SetProperty(ref temperatureDetails, value); }
         }
 
-        public bool SunsetDetails
+        public void LoadSettings()
         {
-            get { return settings.SunsetSunriseDetails; }
+            Settings = LocalStorage.GetSettings();
         }
+
 
         public ICommand SetSunsetDetailsSettingsCommand => new Command(SetSunsetSunriseDetailsSettings);
         public ICommand SetCityDetailsSettingsCommand => new Command(SetCityDetailsSettings);
@@ -63,6 +79,7 @@ namespace Xameteo.ViewModels
         public void ResetAll()
         {
             LocalStorage.ResetAll();
+            LoadSettings();
         }
     }
 }
