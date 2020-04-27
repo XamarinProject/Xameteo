@@ -14,6 +14,16 @@ namespace Xameteo
 
     public class City
     {
+        public City() {
+            WikiDataId = "Données non disponibles";
+            Name = "Données non disponibles";
+            Country = "Données non disponibles";
+            CountryCode = "Données non disponibles";
+            Region = "Données non disponibles";
+            Latitude = 0;
+            Longitude = 0;
+            Temperature = 0;
+        }
         [JsonProperty("wikiDataId")]
         public string WikiDataId { get; set; }
 
