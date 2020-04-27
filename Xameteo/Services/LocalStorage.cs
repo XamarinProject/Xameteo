@@ -164,6 +164,7 @@ namespace Xameteo
                 if(cities.Count == 0)
                 {
                     city.IsFavorite = true;
+                    UpdateFavoriteCity(city);
                 } 
                 else
                 {
